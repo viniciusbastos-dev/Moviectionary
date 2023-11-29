@@ -1,0 +1,6 @@
+.link {
+  color: var(--lighter-primary);
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+}

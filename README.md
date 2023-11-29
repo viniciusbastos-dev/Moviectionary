@@ -1,0 +1,3 @@
+# Projeto criado com React + Typescript para aprendizado
+
+## Em desenvolvimento...

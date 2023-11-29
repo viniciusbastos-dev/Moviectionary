@@ -1,0 +1,17 @@
+.footer {
+  align-items: center;
+  background-color: #000;
+  border-top: 2px solid var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+}
+
+.copyright {
+  color: #fff;
+  font-weight: 500;
+}
+
+.name {
+  color: var(--lighter-primary);
+}
