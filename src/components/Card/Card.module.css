@@ -1,3 +1,23 @@
-.image {
-    width: 400px;
+.card {
+  color: #fff;
+  margin: 0 50px;
+  background-color: rgba(0, 0, 0, 0.404);
+  border-radius: 8px;
+  width: 240px;
+  min-height: 480px;
+}
+
+.cardImage {
+  width: 240px;
+  border-radius: 8px;
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.cardDetail {
+  font-size: 10px;
+  font-weight: 300;
 }

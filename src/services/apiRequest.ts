@@ -31,11 +31,13 @@ const convertDataToObject = async (program: ProgramApiResponse) => {
     program;
   const release = program.release_date ?? program.first_air_date ?? "";
   const title = program.title ?? program.name ?? "";
+  const background = `https://image.tmdb.org/t/p/original${backdrop_path}`;
+  const poster = `https://image.tmdb.org/t/p/original${poster_path}`;
   const showDetails = new Program(
     id,
     title,
-    backdrop_path,
-    poster_path,
+    background,
+    poster,
     media_type,
     release,
     vote_average,
@@ -44,9 +46,9 @@ const convertDataToObject = async (program: ProgramApiResponse) => {
   return showDetails;
 };
 
-const getTrendingShows = async () => {
+const getTrendingShows = async (page: number = 1, region: string) => {
   try {
-    const url = `https://api.themoviedb.org/3/trending/all/day?api_key=66db327435f1565a9898a217047fdfd8&language=pt-BR&page=1`;
+    const url = `https://api.themoviedb.org/3/trending/all/day?api_key=66db327435f1565a9898a217047fdfd8&language=${region}&page=${page}`;
 
     const response = await axios.get(url);
     const programs = response.data.results;

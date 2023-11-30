@@ -16,10 +16,14 @@ const Card: FunctionComponent<CardData> = ({
 }) => {
   return (
     <article className={styles.card}>
-      <img className={styles.image} src={poster} alt={`${title}'s poster`} />
-      <h2>{title}</h2>
-      <p>{release}</p>
-      <p>{votes * 10}%</p>
+      <img
+        className={styles.cardImage}
+        src={poster}
+        alt={`${title}'s poster`}
+      />
+      <h2 className={styles.cardTitle}>{title}</h2>
+      <p className={styles.cardDetail}>{release}</p>
+      {votes !== 0 && <p>{(votes * 10).toFixed(0) }%</p>}
     </article>
   );
 };

@@ -7,11 +7,13 @@ export const useMediaContext = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [hasLoaded, setHasLoaded] = useState<boolean>(false);
 
+  const language = window.navigator.language
+
   useEffect(() => {
     if (!hasLoaded) {
       const fetchData = async () => {
         try {
-          const requestData = await getTrendingShows();
+          const requestData = await getTrendingShows(1, language);
           setMedia(requestData);
           setIsLoading(false);
           setHasLoaded(true);
@@ -22,7 +24,7 @@ export const useMediaContext = () => {
       };
       fetchData();
     }
-  }, [hasLoaded, setMedia]);
+  }, [hasLoaded, setMedia, language]);
 
   return { media, isLoading };
 };
