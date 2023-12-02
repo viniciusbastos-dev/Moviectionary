@@ -1,32 +1,41 @@
+import { FunctionComponent } from "react";
 import styles from "./Banner.module.css";
-import { useMediaContext } from "../../hooks/useMediaContext";
 
-const Banner = () => {
-  const { media, isLoading } = useMediaContext();
+interface Trending {
+  id: number;
+  title: string;
+  background: string;
+  poster: string;
+  type: string;
+  release: string;
+  votes: number;
+  overview: string;
+}
 
-  if (isLoading) {
-    return <h1>Carregando...</h1>;
-  }
+interface BannerProps {
+  trending: Trending[];
+}
 
+const Banner: FunctionComponent<BannerProps> = ({ trending }) => {
   return (
     <section
       className={styles.banner}
       style={{
-        backgroundImage: `url('${media[0].background}')`,
+        backgroundImage: `url('${trending[0].background}')`,
       }}
     >
       <div className={styles.bannerContainer}>
         <div>
           <p className={styles.category}>
-            {media[0].type === "movie" ? "Movie" : "Tv Show"}
+            {trending[0].type === "movie" ? "Movie" : "Tv Show"}
           </p>
-          <h1 className={styles.title}>{media[0].title}</h1>
+          <h1 className={styles.title}>{trending[0].title}</h1>
           <p>Sinopse</p>
-          <p className={styles.synopsis}>{media[0].overview}</p>
+          <p className={styles.synopsis}>{trending[0].overview}</p>
         </div>
         <img
           className={styles.bannerImage}
-          src={`https://image.tmdb.org/t/p/original${media[0].poster}`}
+          src={`https://image.tmdb.org/t/p/original${trending[0].poster}`}
           alt=""
         />
       </div>
