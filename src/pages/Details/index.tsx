@@ -8,6 +8,8 @@ const Details = () => {
     type: type ?? "",
   };
 
+  // TODO: Criar banner para pagina de detalhes
+
   return (
     <>
       <h1>
