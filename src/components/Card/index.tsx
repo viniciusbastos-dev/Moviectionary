@@ -1,29 +1,37 @@
-import styles from "./Card.module.css";
 import { FunctionComponent } from "react";
+import { Link } from "react-router-dom";
+import styles from "./Card.module.css";
+import Progress from "../Progress";
 
 interface CardData {
-  poster: string;
+  id: number;
+  media_type: string;
+  posterUrl: string;
   title: string;
   release: string;
   votes: number;
 }
 
 const Card: FunctionComponent<CardData> = ({
-  poster,
+  id,
+  media_type,
+  posterUrl,
   title,
   release,
   votes,
 }) => {
   return (
     <article className={styles.card}>
-      <img
-        className={styles.cardImage}
-        src={poster}
-        alt={`${title}'s poster`}
-      />
+      <Link to={`${media_type}/${id}`}>
+        <img
+          className={styles.cardImage}
+          src={posterUrl}
+          alt={`${title}'s poster`}
+        />
+      </Link>
       <h2 className={styles.cardTitle}>{title}</h2>
       <p className={styles.cardDetail}>{release}</p>
-      {votes !== 0 && <p>{(votes * 10).toFixed(0) }%</p>}
+      {votes !== 0 && <Progress size={48} value={votes * 10} />}
     </article>
   );
 };

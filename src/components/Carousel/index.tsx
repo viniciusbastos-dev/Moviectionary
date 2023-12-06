@@ -7,9 +7,9 @@ import styles from "./Carousel.module.css";
 interface Trending {
   id: number;
   title: string;
-  background: string;
-  poster: string;
-  type: string;
+  backgroundUrl: string;
+  posterUrl: string;
+  media_type: string;
   release: string;
   votes: number;
   overview: string;
@@ -22,14 +22,12 @@ interface BannerProps {
 const Carousel: FunctionComponent<BannerProps> = ({ trending }) => {
   return (
     <div className={styles.container}>
+      <h1>Trending</h1>
       <Swiper
         modules={[Navigation]}
         navigation
         slidesPerView={5}
         spaceBetween={30}
-        breakpoints={{
-          1440: { slidesPerView: 4 },
-        }}
       >
         {trending.map((item) => (
           <SwiperSlide key={item.id}>

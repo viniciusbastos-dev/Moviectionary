@@ -1,12 +1,13 @@
 import { FunctionComponent } from "react";
 import styles from "./Banner.module.css";
+import { Link } from "react-router-dom";
 
 interface Trending {
   id: number;
   title: string;
-  background: string;
-  poster: string;
-  type: string;
+  backgroundUrl: string;
+  posterUrl: string;
+  media_type: string;
   release: string;
   votes: number;
   overview: string;
@@ -17,27 +18,31 @@ interface BannerProps {
 }
 
 const Banner: FunctionComponent<BannerProps> = ({ trending }) => {
+  const data = trending[0];
+
   return (
     <section
       className={styles.banner}
       style={{
-        backgroundImage: `url('${trending[0].background}')`,
+        backgroundImage: `url('${data.backgroundUrl}')`,
       }}
     >
       <div className={styles.bannerContainer}>
         <div>
           <p className={styles.category}>
-            {trending[0].type === "movie" ? "Movie" : "Tv Show"}
+            {data.media_type === "movie" ? "Movie" : "Tv Show"}
           </p>
-          <h1 className={styles.title}>{trending[0].title}</h1>
+          <h1 className={styles.title}>{data.title}</h1>
           <p>Sinopse</p>
-          <p className={styles.synopsis}>{trending[0].overview}</p>
+          <p className={styles.synopsis}>{data.overview}</p>
         </div>
-        <img
-          className={styles.bannerImage}
-          src={`https://image.tmdb.org/t/p/original${trending[0].poster}`}
-          alt=""
-        />
+        <Link to={`${data.media_type}/${data.id}`}>
+          <img
+            className={styles.bannerImage}
+            src={`https://image.tmdb.org/t/p/original${data.posterUrl}`}
+            alt={`${data.title}'s poster`}
+          />
+        </Link>
       </div>
     </section>
   );
