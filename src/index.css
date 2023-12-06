@@ -1,8 +1,6 @@
 :root {
   --color-primary: #2a7ae4;
   --lighter-primary: #0894fc;
-}
 
-* {
-  font-family: "Inter", sans-serif;
+  font-family: "Roboto", sans-serif;
 }

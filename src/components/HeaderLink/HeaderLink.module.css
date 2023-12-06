@@ -4,3 +4,7 @@
   text-decoration: none;
   text-transform: uppercase;
 }
+
+.link:hover {
+  color: var(--color-primary);
+}
