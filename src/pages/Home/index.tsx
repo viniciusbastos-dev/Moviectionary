@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { getTrending } from "../../services/apiRequests";
-import styles from "./Home.module.css";
 import Banner from "../../components/Banner";
 import Carousel from "../../components/Carousel";
-import Progress from "../../components/Progress";
+import Loading from "../../components/Loading";
 
 interface Trending {
   id: number;
@@ -22,8 +21,7 @@ export default function Home() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const language = window.navigator.language;
-      const data = await getTrending(1, "day", language);
+      const data = await getTrending(1, "day");
       setTrending((prev) => [...prev, ...data]);
       setIsLoading(false);
     };
@@ -31,9 +29,7 @@ export default function Home() {
   }, []);
 
   return isLoading ? (
-    <section className={styles.container}>
-      <Progress size={250} value={99} />
-    </section>
+    <Loading />
   ) : (
     <>
       <Banner trending={trending} />

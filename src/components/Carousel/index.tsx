@@ -26,8 +26,8 @@ const Carousel: FunctionComponent<BannerProps> = ({ trending }) => {
       <Swiper
         modules={[Navigation]}
         navigation
-        slidesPerView={5}
-        spaceBetween={30}
+        slidesPerView={8}
+        spaceBetween={50}
       >
         {trending.map((item) => (
           <SwiperSlide key={item.id}>

@@ -1,7 +1,6 @@
 import { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Card.module.css";
-import Progress from "../Progress";
 
 interface CardData {
   id: number;
@@ -20,18 +19,24 @@ const Card: FunctionComponent<CardData> = ({
   release,
   votes,
 }) => {
+  const votePercentage = (votes * 10).toFixed(0);
+
   return (
     <article className={styles.card}>
       <Link to={`${media_type}/${id}`}>
         <img
-          className={styles.cardImage}
+          className={styles.card_image}
           src={posterUrl}
           alt={`${title}'s poster`}
         />
       </Link>
       <h2 className={styles.cardTitle}>{title}</h2>
-      <p className={styles.cardDetail}>{release}</p>
-      {votes !== 0 && <Progress size={48} value={votes * 10} />}
+      <div className={styles.info_container}>
+        {release !== "Invalid Date" && (
+          <p className={styles.cardDetail}>{release}</p>
+        )}
+        <p>{votePercentage}%</p>
+      </div>
     </article>
   );
 };

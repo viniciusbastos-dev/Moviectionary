@@ -1,22 +1,19 @@
 .card {
-  margin: 0 50px;
-  background-color: rgba(0, 0, 0, 0.404);
-  border-radius: 8px;
-  width: 240px;
-  min-height: 480px;
-}
-
-.cardImage {
-  width: 240px;
-  border-radius: 8px;
-}
-
-.cardTitle {
-  font-size: 18px;
+  width: 146px;
+  padding-bottom: 8px;
   font-weight: 500;
 }
 
+.card_image {
+  width: 146px;
+  border-radius: 8px 8px 0 0;
+}
+
+.cardTitle {
+  font-size: 13px;
+}
+
 .cardDetail {
-  font-size: 10px;
-  font-weight: 300;
+  font-size: 11px;
+  color: #8b8e93;
 }
