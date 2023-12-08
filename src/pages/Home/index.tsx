@@ -1,28 +1,20 @@
 import { useEffect, useState } from "react";
-import { getTrending } from "../../services/apiRequests";
+import { TrendingItem, getTrending } from "../../services/getTrending";
 import Banner from "../../components/Banner";
 import Carousel from "../../components/Carousel";
 import Loading from "../../components/Loading";
 
-interface Trending {
-  id: number;
-  votes: number;
-  title: string;
-  overview: string;
-  media_type: string;
-  release: string;
-  backgroundUrl: string;
-  posterUrl: string;
-}
-
 export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [trending, setTrending] = useState<Trending[]>([]);
+  const [trending, setTrending] = useState<TrendingItem[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getTrending(1, "day");
-      setTrending((prev) => [...prev, ...data]);
+      const response = await getTrending({ page: 1, time: "day" });
+
+      if (response.code === "success") {
+        setTrending((prev) => [...prev, ...response.data.results]);
+      }
       setIsLoading(false);
     };
     fetchData();

@@ -1,39 +1,34 @@
 import { FunctionComponent } from "react";
+import { TrendingItem } from "../../services/getTrending";
 import { Link } from "react-router-dom";
 import styles from "./Card.module.css";
 
-interface CardData {
-  id: number;
-  media_type: string;
-  posterUrl: string;
-  title: string;
-  release: string;
-  votes: number;
-}
-
-const Card: FunctionComponent<CardData> = ({
+const Card: FunctionComponent<TrendingItem> = ({
   id,
-  media_type,
-  posterUrl,
+  vote_average,
   title,
-  release,
-  votes,
+  name,
+  media_type,
+  poster_path,
+  release_date,
+  first_air_date,
 }) => {
-  const votePercentage = (votes * 10).toFixed(0);
+  const baseUrl = "https://image.tmdb.org/t/p/original";
+  const votePercentage = (vote_average * 10).toFixed(0);
 
   return (
     <article className={styles.card}>
       <Link to={`${media_type}/${id}`}>
         <img
           className={styles.card_image}
-          src={posterUrl}
-          alt={`${title}'s poster`}
+          src={`${baseUrl}${poster_path}`}
+          alt={`${title ?? name}'s poster`}
         />
       </Link>
-      <h2 className={styles.cardTitle}>{title}</h2>
+      <h2 className={styles.cardTitle}>{title ?? name}</h2>
       <div className={styles.info_container}>
-        {release !== "Invalid Date" && (
-          <p className={styles.cardDetail}>{release}</p>
+        {release_date && (
+          <p className={styles.cardDetail}>{release_date ?? first_air_date}</p>
         )}
         <p>{votePercentage}%</p>
       </div>

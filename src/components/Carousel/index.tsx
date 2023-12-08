@@ -3,20 +3,10 @@ import { FunctionComponent } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Card from "../Card";
 import styles from "./Carousel.module.css";
-
-interface Trending {
-  id: number;
-  title: string;
-  backgroundUrl: string;
-  posterUrl: string;
-  media_type: string;
-  release: string;
-  votes: number;
-  overview: string;
-}
+import { TrendingItem } from "../../services/getTrending";
 
 interface BannerProps {
-  trending: Trending[];
+  trending: TrendingItem[];
 }
 
 const Carousel: FunctionComponent<BannerProps> = ({ trending }) => {
