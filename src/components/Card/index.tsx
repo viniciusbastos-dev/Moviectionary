@@ -14,10 +14,11 @@ const Card: FunctionComponent<TrendingItem> = ({
   first_air_date,
 }) => {
   const baseUrl = "https://image.tmdb.org/t/p/original";
-  const votePercentage = (vote_average * 10).toFixed(0);
+  const votes = vote_average.toFixed(1);
+  const releaseYear = (release_date ?? first_air_date).split("-")[0];
 
   return (
-    <article className={styles.card}>
+    <article className={styles.card_container}>
       <Link to={`${media_type}/${id}`}>
         <img
           className={styles.card_image}
@@ -25,13 +26,9 @@ const Card: FunctionComponent<TrendingItem> = ({
           alt={`${title ?? name}'s poster`}
         />
       </Link>
-      <h2 className={styles.cardTitle}>{title ?? name}</h2>
-      <div className={styles.info_container}>
-        {release_date && (
-          <p className={styles.cardDetail}>{release_date ?? first_air_date}</p>
-        )}
-        <p>{votePercentage}%</p>
-      </div>
+      <h2 className={styles.card_title}>{title ?? name}</h2>
+      {releaseYear && <p className={styles.card_details}>{releaseYear}</p>}
+      {votes && <p className={styles.card_details}>{votes}</p>}
     </article>
   );
 };

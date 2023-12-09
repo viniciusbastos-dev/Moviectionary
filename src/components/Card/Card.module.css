@@ -1,19 +1,21 @@
-.card {
+.card_container {
   width: 146px;
-  padding-bottom: 8px;
   font-weight: 500;
 }
 
 .card_image {
   width: 146px;
-  border-radius: 8px 8px 0 0;
+  height: 219px;
 }
 
-.cardTitle {
+.card_title {
   font-size: 13px;
+  margin: 8px 0 4px 0;
 }
 
-.cardDetail {
+.card_details {
+  display: inline;
+  margin-right: 30px;
   font-size: 11px;
   color: #8b8e93;
 }
