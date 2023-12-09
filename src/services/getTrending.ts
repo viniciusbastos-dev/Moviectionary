@@ -1,5 +1,5 @@
-import axios from "axios";
 import { requestHandler } from "./requestHandler";
+import axios from "axios";
 const region = window.navigator.language;
 
 export interface TrendingItem {

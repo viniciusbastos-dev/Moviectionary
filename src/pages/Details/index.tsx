@@ -1,18 +1,36 @@
-/* import { useParams } from "react-router-dom"; */
+import {
+  MediaDetails,
+  MediaObject,
+  getMediaDetails,
+} from "../../services/getMediaDetails";
+import { useLayoutEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import MediaInfo from "../../components/MediaInfo";
 
 const Details = () => {
-/*   const { id, type } = useParams();
+  const { type = "", id = "" } = useParams();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [mediaDetails, setMediaDetails] = useState<MediaDetails>(MediaObject);
 
-  const params = {
-    id: id ?? "",
-    type: type ?? "",
-  }; */
+  useLayoutEffect(() => {
+    const fetchData = async () => {
+      const response = await getMediaDetails({
+        media_type: type,
+        id: id,
+      });
+      if (response.code === "success") {
+        setMediaDetails(response.data);
+      }
+      setIsLoading(false);
+    };
+    fetchData();
+  }, [type, id]);
 
-  // TODO: Criar banner para pagina de detalhes
-
-  return (
+  return isLoading ? (
+    ""
+  ) : (
     <>
-      
+      <MediaInfo mediaDetails={mediaDetails} />
     </>
   );
 };

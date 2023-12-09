@@ -1,0 +1,82 @@
+.backdrop {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.colorOverlay {
+  background-color: rgba(117, 117, 117, 0.295);
+}
+
+.header {
+  display: flex;
+  padding: 30px;
+}
+
+.mediaPoster {
+  border-radius: 8px;
+  height: 450px;
+  width: 300px;
+}
+
+.headerWrapper {
+  align-content: center;
+  align-items: flex-start;
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 40px;
+  width: 100%;
+}
+
+.headerInfo {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  width: 100%;
+}
+
+.releaseYear {
+  margin-left: 8px;
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+.facts {
+  display: flex;
+}
+
+.genres {
+  display: flex;
+  gap: 5px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.genres::before,
+.runtime::before {
+  align-items: center;
+  content: "•";
+  display: inline-flex;
+  height: 100%;
+  font-size: 1.1em;
+  position: absolute;
+  left: 7px;
+  width: 100%;
+}
+
+.runtime {
+  position: relative;
+  padding-left: 20px;
+}
+
+.overviewTitle {
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
