@@ -1,9 +1,9 @@
-import { FunctionComponent } from "react";
+import { FC } from "react";
 import { TrendingItem } from "../../services/getTrending";
 import { Link } from "react-router-dom";
 import styles from "./Card.module.css";
 
-const Card: FunctionComponent<TrendingItem> = ({
+const Card: FC<TrendingItem> = ({
   id,
   vote_average,
   title,

@@ -1,5 +1,5 @@
 import { Navigation } from "swiper/modules";
-import { FunctionComponent } from "react";
+import { FC } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Card from "../Card";
 import styles from "./Carousel.module.css";
@@ -9,7 +9,7 @@ interface BannerProps {
   trending: TrendingItem[];
 }
 
-const Carousel: FunctionComponent<BannerProps> = ({ trending }) => {
+const Carousel: FC<BannerProps> = ({ trending }) => {
   return (
     <div className={styles.container}>
       <h1>Trending</h1>

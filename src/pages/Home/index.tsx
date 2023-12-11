@@ -4,7 +4,7 @@ import Banner from "../../components/Banner";
 import Carousel from "../../components/Carousel";
 import Loading from "../../components/Loading";
 
-export default function Home() {
+const Home = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [trending, setTrending] = useState<TrendingItem[]>([]);
 
@@ -28,4 +28,6 @@ export default function Home() {
       <Carousel trending={trending} />
     </>
   );
-}
+};
+
+export default Home;

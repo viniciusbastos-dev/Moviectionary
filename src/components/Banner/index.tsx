@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FC } from "react";
 import styles from "./Banner.module.css";
 import { Link } from "react-router-dom";
 import { TrendingItem } from "../../services/getTrending";
@@ -7,7 +7,7 @@ interface BannerProps {
   trending: TrendingItem[];
 }
 
-const Banner: FunctionComponent<BannerProps> = ({ trending }) => {
+const Banner: FC<BannerProps> = ({ trending }) => {
   const data = trending[0];
 
   return (

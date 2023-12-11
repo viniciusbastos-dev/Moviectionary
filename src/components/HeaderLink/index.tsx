@@ -1,4 +1,4 @@
-import { ReactNode, FunctionComponent } from "react";
+import { ReactNode, FC } from "react";
 import { Link } from "react-router-dom";
 import styles from "./HeaderLink.module.css"
 
@@ -7,7 +7,7 @@ interface HeaderLinkProps {
   children: ReactNode;
 }
 
-const HeaderLink: FunctionComponent<HeaderLinkProps> = ({ url, children }) => (
+const HeaderLink: FC<HeaderLinkProps> = ({ url, children }) => (
   <Link className={styles.link} to={url}>{children}</Link>
 );
 export default HeaderLink;

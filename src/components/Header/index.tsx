@@ -3,7 +3,7 @@ import HeaderLink from "../HeaderLink";
 import logo from "/logo.png";
 import styles from "./Header.module.css";
 
-function Header() {
+const Header = () => {
   return (
     <header className={styles.header}>
       <Link to="./">
@@ -21,6 +21,6 @@ function Header() {
       </nav>
     </header>
   );
-}
+};
 
 export default Header;
