@@ -1,8 +1,10 @@
 import { FC } from "react";
 import { MediaDetails } from "../../services/getMediaDetails";
+import * as S from "./MediaInfo";
+
 import styles from "./MediaInfo.module.css";
 
-// TODO: Tentar aplicar styled component
+// TODO: completar sytled components
 
 const MediaInfo: FC<{ mediaDetails: MediaDetails }> = ({
   mediaDetails: {
@@ -28,20 +30,15 @@ const MediaInfo: FC<{ mediaDetails: MediaDetails }> = ({
   };
 
   return (
-    <div
-      className={styles.backdrop}
-      style={{
-        backgroundImage: `url('${baseUrl}${backdrop_path}')`,
-      }}
-    >
-      <div className={styles.colorOverlay}>
-        <section className={styles.header}>
-          <img
+    <S.BackgroundContainer $backgroundImage={backdrop_path}>
+      <S.OverlayContainer>
+        <S.HeaderContainer>
+          <S.PosterImage
             className={styles.mediaPoster}
             src={`${baseUrl}${poster_path}`}
             alt={`${title ?? name} Poster`}
           />
-          <section className={styles.headerWrapper}>
+          <S.HeaderContent>
             <div className={styles.headerInfo}>
               <h2 className={styles.title}>
                 {title ?? name}
@@ -72,10 +69,10 @@ const MediaInfo: FC<{ mediaDetails: MediaDetails }> = ({
                 <p>{overview}</p>
               </div>
             </div>
-          </section>
-        </section>
-      </div>
-    </div>
+          </S.HeaderContent>
+        </S.HeaderContainer>
+      </S.OverlayContainer>
+    </S.BackgroundContainer>
   );
 };
 

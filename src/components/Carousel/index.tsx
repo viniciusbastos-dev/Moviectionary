@@ -17,7 +17,7 @@ const Carousel: FC<BannerProps> = ({ trending }) => {
         modules={[Navigation]}
         navigation
         slidesPerView={8}
-        spaceBetween={50}
+        spaceBetween={150}
       >
         {trending.map((item) => (
           <SwiperSlide key={item.id}>

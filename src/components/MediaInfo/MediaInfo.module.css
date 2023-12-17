@@ -1,33 +1,3 @@
-.backdrop {
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.colorOverlay {
-  background-color: rgba(117, 117, 117, 0.295);
-}
-
-.header {
-  display: flex;
-  padding: 30px;
-}
-
-.mediaPoster {
-  border-radius: 8px;
-  height: 450px;
-  width: 300px;
-}
-
-.headerWrapper {
-  align-content: center;
-  align-items: flex-start;
-  color: #fff;
-  display: flex;
-  flex-wrap: wrap;
-  padding-left: 40px;
-  width: 100%;
-}
-
 .headerInfo {
   display: flex;
   flex-wrap: wrap;

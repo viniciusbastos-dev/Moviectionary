@@ -1,0 +1,33 @@
+Listar Discover
+Movie
+TV
+
+ID do filme = ID do card
+
+Requisição após clicar no card
+Movie/TV Details/Credits com ID do card
+
+
+- Fazer hover no card e exibir informações adicionais
+	Exibir informações sinopse e avaliação em estrelas no hover
+
+- Tentar fazer load de api com intersection observer
+
+- Transformar details em um objeto
+
+Links
+
+BANCO DE IMAGENS
+https://image.tmdb.org/t/p/original/dm6V24NjjvjMiCtbMkc8Y2WPm2e.jpg
+
+API REQUEST TRENDING
+https://api.themoviedb.org/3/trending/all/day?api_key=66db327435f1565a9898a217047fdfd8&language=pt-BR
+
+https://api.themoviedb.org/3/{media.type}/897087/credits?api_key=66db327435f1565a9898a217047fdfd8&language=pt-BR
+
+https://api.themoviedb.org/3/${type}/${id}?api_key=${API_KEY}&language=${lang}
+
+QUERY PARA CHAVE DA API
+api_key=66db327435f1565a9898a217047fdfd8
+
+

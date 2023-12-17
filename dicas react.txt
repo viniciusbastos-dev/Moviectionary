@@ -1,0 +1,3 @@
+fazer uma função para pegar o valor dentro do state ex
+
+setState(valueInsideState => valueInsideState + 1)
